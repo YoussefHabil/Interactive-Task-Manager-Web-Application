@@ -155,3 +155,98 @@ button {
     border-color: var(--primary-color);
     color: var(--primary-color);
 }
+
+#taskList {
+    list-style: none;
+    margin-bottom: 24px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: white;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-left: 4px solid transparent;
+    animation: taskAppear 0.4s ease forwards;
+}
+
+.task-item.completed {
+    border-left-color: var(--accent-color);
+    background: #f8fff8;
+    opacity: 0.9;
+}
+
+.task-text {
+    flex: 1;
+    margin: 0 16px;
+    cursor: pointer;
+    position: relative;
+    padding-left: 32px;
+}
+
+.task-text::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task-item.completed .task-text::before {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    background-image: url("data:image/svg+xml,...");
+    background-position: center;
+    background-size: 14px;
+    animation: checkBounce 0.3s ease;
+}
+
+.delete-btn {
+    background: var(--danger-color);
+    color: white;
+    padding: 8px 34px 8px 32px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.delete-btn::after {
+    content: '✕';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.task-item:hover .delete-btn {
+    opacity: 1;
+}
+
+@keyframes taskAppear {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes checkBounce {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@media (prefers-color-scheme: dark) {
+    .task-item {
+        background: rgba(255,255,255,0.05);
+    }
+}
