@@ -1,0 +1,17 @@
+:root {
+    --primary-color: #2A2D43;
+    --secondary-color: #5C6B73;
+    --accent-color: #9EE493;
+    --danger-color: #FF6B6B;
+    --text-color: #2B2D42;
+    --background-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #9EE493;
+        --secondary-color: #C7D6D5;
+        --text-color: #FFFFFF;
+        --background-gradient: linear-gradient(135deg, #2A2D43 0%, #1A1C2B 100%);
+    }
+}
