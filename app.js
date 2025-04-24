@@ -19,3 +19,18 @@ addTaskBtn.addEventListener('click', addTask);
 taskInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') addTask();
 });
+
+function deleteTask(id) {
+    tasks = tasks.filter(task => task.id !== id);
+    renderTasks();
+}
+
+function toggleTask(id) {
+    tasks = tasks.map(task => {
+        if (task.id === id) {
+            return { ...task, completed: !task.completed };
+        }
+        return task;
+    });
+    renderTasks();
+}
