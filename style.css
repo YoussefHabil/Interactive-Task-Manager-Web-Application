@@ -7,15 +7,6 @@
     --background-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-color: #9EE493;
-        --secondary-color: #C7D6D5;
-        --text-color: #FFFFFF;
-        --background-gradient: linear-gradient(135deg, #2A2D43 0%, #1A1C2B 100%);
-    }
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -39,13 +30,6 @@ body {
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-@media (prefers-color-scheme: dark) {
-    .container {
-        background: rgba(42, 45, 67, 0.95);
-        border-color: rgba(255,255,255,0.1);
-    }
 }
 
 h1 {
@@ -88,13 +72,6 @@ h1::after {
 #taskInput:focus {
     outline: none;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-    #taskInput {
-        background: rgba(255,255,255,0.1);
-        color: white;
-    }
 }
 
 button {
@@ -208,7 +185,7 @@ button {
 .task-item.completed .task-text::before {
     background: var(--accent-color);
     border-color: var(--accent-color);
-    background-image: url("data:image/svg+xml,...");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
     background-position: center;
     background-size: 14px;
     animation: checkBounce 0.3s ease;
@@ -234,23 +211,6 @@ button {
     opacity: 1;
 }
 
-@keyframes taskAppear {
-    0% { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes checkBounce {
-    0% { transform: scale(0); }
-    80% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-@media (prefers-color-scheme: dark) {
-    .task-item {
-        background: rgba(255,255,255,0.05);
-    }
-}
-
 .status-bar {
     display: flex;
     justify-content: space-between;
@@ -269,6 +229,17 @@ button {
     background: #cc0000;
 }
 
+@keyframes taskAppear {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes checkBounce {
+    0% { transform: scale(0); }
+    80% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
 @media (max-width: 480px) {
     .input-section {
         flex-direction: column;
@@ -276,5 +247,28 @@ button {
     
     button {
         width: 100%;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #9EE493;
+        --secondary-color: #C7D6D5;
+        --text-color: #FFFFFF;
+        --background-gradient: linear-gradient(135deg, #2A2D43 0%, #1A1C2B 100%);
+    }
+    
+    .container {
+        background: rgba(42, 45, 67, 0.95);
+        border-color: rgba(255,255,255,0.1);
+    }
+    
+    .task-item {
+        background: rgba(255,255,255,0.05);
+    }
+    
+    #taskInput {
+        background: rgba(255,255,255,0.1);
+        color: white;
     }
 }
