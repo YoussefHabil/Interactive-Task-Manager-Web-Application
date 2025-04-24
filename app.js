@@ -72,3 +72,13 @@ taskList.addEventListener('click', (e) => {
         toggleTask(taskId);
     }
 });
+
+// Filter buttons
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderTasks();
+    });
+});
