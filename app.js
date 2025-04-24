@@ -34,3 +34,27 @@ function toggleTask(id) {
     });
     renderTasks();
 }
+
+function renderTasks() {
+    // Filter tasks
+    const filteredTasks = tasks.filter(task => {
+        if (currentFilter === 'active') return !task.completed;
+        if (currentFilter === 'completed') return task.completed;
+        return true;
+    });
+
+    // Update task list
+    taskList.innerHTML = filteredTasks.map(task => `
+        <li class="task-item ${task.completed ? 'completed' : ''}" data-id="${task.id}">
+            <span class="task-text">${task.text}</span>
+            <button class="delete-btn">Delete</button>
+        </li>
+    `).join('');
+
+    // Update remaining tasks
+    const remainingTasks = tasks.filter(task => !task.completed).length;
+    remainingTasksSpan.textContent = `${remainingTasks} ${remainingTasks === 1 ? 'task' : 'tasks'} remaining`;
+}
+
+// Initial render
+renderTasks();
