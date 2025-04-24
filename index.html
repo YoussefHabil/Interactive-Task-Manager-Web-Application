@@ -8,5 +8,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
+        <h1>Task Manager</h1>
+        <div class="input-section">
+            <input type="text" id="taskInput" placeholder="What needs to be done?">
+            <button id="addTaskBtn">Add Task</button>
+        </div>
+        
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <ul id="taskList"></ul>
+
+        <div class="status-bar">
+            <span id="remainingTasks">0 tasks remaining</span>
+            <button id="clear">Clear</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
