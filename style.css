@@ -250,3 +250,31 @@ button {
         background: rgba(255,255,255,0.05);
     }
 }
+
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 2px solid #eee;
+}
+
+#clear {
+    background: var(--danger-color);
+    color: white;
+    text-transform: uppercase;
+}
+
+#clear:hover {
+    background: #cc0000;
+}
+
+@media (max-width: 480px) {
+    .input-section {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+    }
+}
