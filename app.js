@@ -82,3 +82,9 @@ filterBtns.forEach(btn => {
         renderTasks();
     });
 });
+
+// Clear tasks
+clearBtn.addEventListener('click', () => {
+    tasks = tasks.filter(task => !task.completed);
+    renderTasks();
+});
