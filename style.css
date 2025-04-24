@@ -47,3 +47,52 @@ body {
         border-color: rgba(255,255,255,0.1);
     }
 }
+
+h1 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 30px;
+    letter-spacing: -0.03em;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+}
+
+.input-section {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+#taskInput {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#taskInput:focus {
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+    #taskInput {
+        background: rgba(255,255,255,0.1);
+        color: white;
+    }
+}
