@@ -58,3 +58,17 @@ function renderTasks() {
 
 // Initial render
 renderTasks();
+
+// Task list interactions
+taskList.addEventListener('click', (e) => {
+    const taskItem = e.target.closest('.task-item');
+    if (!taskItem) return;
+
+    const taskId = taskItem.dataset.id;
+    
+    if (e.target.classList.contains('delete-btn')) {
+        deleteTask(taskId);
+    } else if (e.target.classList.contains('task-text')) {
+        toggleTask(taskId);
+    }
+});
